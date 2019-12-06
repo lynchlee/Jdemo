@@ -14,11 +14,11 @@ public class DemoApplication {
 
     @RequestMapping("/")
     String home() {
-        logger.info("this is hello world");
         return "Hello, world!";
     }
 
     public static void main(String[] args) {
+        logger.info("this is start spring boot");
         SpringApplication.run(DemoApplication.class, args);
     }
 
