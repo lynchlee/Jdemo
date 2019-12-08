@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 
 public class User implements Serializable {
+    @JsonProperty("User")
     public String getUser() {
         return User;
     }
@@ -14,7 +15,6 @@ public class User implements Serializable {
         User = user;
     }
 
-    @JsonProperty("User")
     private String User;
 
     public User(String user) {

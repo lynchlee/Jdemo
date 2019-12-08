@@ -16,6 +16,7 @@ public class Post implements Serializable {
     private String Host;
     private String Domain;
 
+    @JsonProperty("Domain")
     public String getDomain() {
         return this.Domain;
     }
@@ -36,6 +37,7 @@ public class Post implements Serializable {
         this.Domain = Domain;
     }
 
+    @JsonProperty("From")
     public String getFrom() {
         return this.From;
     }
@@ -43,7 +45,7 @@ public class Post implements Serializable {
     public void setFrom(String From) {
         this.From = From;
     }
-
+    
     public List<User> getTo() {
         return this.To;
     }
@@ -52,6 +54,7 @@ public class Post implements Serializable {
         this.To = to;
     }
 
+    @JsonProperty("Type")
     public String getType() {
         return this.Type;
     }
@@ -60,6 +63,7 @@ public class Post implements Serializable {
         this.Type = type;
     }
 
+    @JsonProperty("Msg_Type")
     public int getMsg_Type() {
         return this.Msg_Type;
     }
@@ -68,6 +72,7 @@ public class Post implements Serializable {
         this.Msg_Type = msg_Type;
     }
 
+    @JsonProperty("Host")
     public String getHost() {
         return this.Host;
     }
@@ -76,6 +81,7 @@ public class Post implements Serializable {
         this.Host = host;
     }
 
+    @JsonProperty("Body")
     public String getBody() {
         return this.Body;
     }
