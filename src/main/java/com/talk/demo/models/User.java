@@ -21,11 +21,11 @@ public class User implements Serializable {
         this.User = user;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "User=" + User +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "User{" +
+//                "User=" + User +
+//                '}';
+//    }
 
 }

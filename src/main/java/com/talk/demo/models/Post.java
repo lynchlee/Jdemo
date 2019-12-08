@@ -1,5 +1,6 @@
 package com.talk.demo.models;
 
+import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
@@ -86,10 +87,11 @@ public class Post implements Serializable {
 
     @Override
     public String toString() {
-        return "Post{" +
-                "From=" + From +
-                ", To=" + To +
-                ", Body='" + Body + '\'' +
-                '}';
+        return JSON.toJSONString(this);
+//        return "Post{" +
+//                "From=" + From +
+//                ", To=" + To +
+//                ", Body='" + Body + '\'' +
+//                '}';
     }
 }

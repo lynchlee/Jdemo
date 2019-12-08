@@ -1,5 +1,8 @@
 package com.talk.demo.service;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.talk.demo.JsonUtils;
 import com.talk.demo.models.Post;
 import com.talk.demo.models.User;
 import org.apache.logging.log4j.LogManager;
@@ -39,20 +42,28 @@ public class RestService {
         List<User> toList = new ArrayList<User>();
         User user1 = new User("chao1.zhang");
         toList.add(user1);
+        User user2 = new User("chao2.zhang");
+        toList.add(user2);
 
 
         // create a post object
         Post post = new Post("chao.zhang", toList, "hello", "chat", 1, "qtalk", "qtalk");
 
-        logger.info("this is xxxxxxxx " +  post.toString());
+        logger.info("this is xxxxxxxx {}", post.toString());
         // build the request
         HttpEntity<Post> entity = new HttpEntity<>(post, headers);
 
-        logger.info("this is tolist" + entity);
+        logger.info("this is tolist [{}]", entity);
 
         // send POST request
-        Post ret = restTemplate.postForObject(url, post, Post.class);
-        logger.info("this is " + ret.getFrom());
-        return ret;
+        JSONObject ret = restTemplate.postForObject(url, post, JSONObject.class);
+
+        if (!Objects.isNull(ret)) {
+            logger.info("this is " + ret.getString("From"));
+
+            return JsonUtils.parse(ret.toJSONString(), Post.class);
+        }
+
+        return null;
     }
 }
