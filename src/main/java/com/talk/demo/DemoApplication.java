@@ -1,11 +1,11 @@
 package com.talk.demo;
 
 import com.talk.demo.message_redis.Receiver;
+import com.talk.demo.service.RestService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -54,16 +54,7 @@ public class DemoApplication {
 
     public static void main(String[] args) throws InterruptedException {
         logger.info("this is start spring boot");
-        ApplicationContext ctx = SpringApplication.run(DemoApplication.class, args);
-        StringRedisTemplate template = ctx.getBean(StringRedisTemplate.class);
-        CountDownLatch latch = ctx.getBean(CountDownLatch.class);
-
-        logger.info("Sending message...");
-        template.convertAndSend("chat", "Hello from Redis!");
-
-        latch.await();
-
-        System.exit(0);
+        SpringApplication.run(DemoApplication.class, args);
     }
 
 }
