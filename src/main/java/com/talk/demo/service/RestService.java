@@ -49,11 +49,11 @@ public class RestService {
         // create a post object
         Post post = new Post("chao.zhang", toList, "hello", "chat", 1, "qtalk", "qtalk");
 
-        logger.info("this is xxxxxxxx {}", post.toString());
+        logger.info("this is xxxxxxxx {}", JsonUtils.jsonString(post));
         // build the request
         HttpEntity<Post> entity = new HttpEntity<>(post, headers);
 
-        logger.info("this is tolist [{}]", entity);
+//        logger.info("this is tolist [{}]", entity);
 
         // send POST request
         JSONObject ret = restTemplate.postForObject(url, post, JSONObject.class);

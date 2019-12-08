@@ -7,18 +7,18 @@ import java.io.Serializable;
 
 public class User implements Serializable {
     public String getUser() {
-        return User;
+        return user;
     }
 
     public void setUser(String user) {
-        User = user;
+        user = user;
     }
 
     @JsonProperty("User")
-    private String User;
+    private String user;
 
     public User(String user) {
-        this.User = user;
+        this.user = user;
     }
 
 //    @Override
